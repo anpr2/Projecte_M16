@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actividades</title>
+    <style>
+        body {
+            background-color: #C7F48E;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Actividad</h1>
+    <img id="actividad-image" src="" alt="Imagen de la actividad">
+
+    <script>
+        const actividadImage = document.getElementById('actividad-image');
+
+        // Realiza una solicitud al servidor Node.js para obtener la imagen de la actividad
+        fetch('http://192.168.56.120:3000/actividades')  // Ajusta la URL a tu servidor Node.js
+            .then(response => {
+                if (response.ok) {
+                    actividadImage.src = 'data:image/jpeg;base64,' + response;
+                } else {
+                    console.error('Error al obtener la imagen:', response.statusText);
+                }
+            })
+            .catch(error => console.error('Error al obtener la imagen:', error));
+    </script>
+</body>
+</html>

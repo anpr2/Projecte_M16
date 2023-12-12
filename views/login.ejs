@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Activitat</title>
+    <!-- Agrega el enlace al archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color: #C7F48E;">
+    <div class="container mt-5">
+        <h2 class="text-center">Login Activitat</h2>
+        <form id="loginForm" class="mt-4">
+            <div class="form-group">
+                <label for="username">Nom Usuari</label>
+                <input type="text" class="form-control" id="username" placeholder="Introdueix el teu nom d'usuari" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contrasenya</label>
+                <input type="password" class="form-control" id="password" placeholder="Introdueix la teva contrasenya" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+            <!-- Cambia el href para redirigir a la ruta '/opcions' en lugar de 'registre.html' -->
+            <a href="/registre" class="btn btn-info ml-2">Registrarse</a>
+        </form>
+        <a href="/" class="btn btn-secondary mt-3">Volver</a>
+    </div>
+
+    <!-- Agrega el enlace al archivo JavaScript de Bootstrap y jQuery si es necesario -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script> -->
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const username = document.querySelector('#username').value;
+            const password = document.querySelector('#password').value;
+
+            const response = await fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nombre_usuario: username, contrasenya: password })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                window.location.href = '/cicles'; 
+            } else {
+                alert('Error de inicio de sesión: ' + result.message);
+            }
+        });
+    </script>
+</body>
+</html>

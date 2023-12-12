@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Enfermedades Bucodentales</title>
+    <style>
+        body {
+            background-color: #C7F48E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #contenedor {
+            display: flex;
+            align-items: flex-start; /* Alinea los elementos al inicio */
+        }
+
+        #imagen-carie {
+            width: 50%;
+            max-width: 600px; /* Ajusta el tamaño según tus necesidades */
+            margin-right: 20px;
+        }
+
+        .enfermedad-buttons {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .enfermedad-button {
+            background-color: transparent;
+            color: #000;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .enfermedad-button:hover {
+            background-color: transparent; /* Mantén el fondo transparente al hacer hover */
+            color: #d9534f; /* Cambia solo el color del texto al hacer hover */
+        }
+
+        .enfermedad-verde {
+            background-color: #008000;
+            color: #fff;
+        }
+
+        .enfermedad-rojo {
+            background-color: #d9534f;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contenedor">
+        <img id="imagen-carie" src="foto_carie.png" alt="Foto Carie">
+
+        <div class="enfermedad-buttons">
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'verde')">A) Càries</button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">B) Fluorosis</button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">C)Maloclusió</button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">D) Bruxisme</button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">E) Fractura</button>
+        </div>
+    </div>
+
+    <script>
+        function cambiarColor(boton, color) {
+            // Reiniciar todos los botones a color negro transparente
+            var botones = document.getElementsByClassName("enfermedad-button");
+            for (var i = 0; i < botones.length; i++) {
+                botones[i].classList.remove("enfermedad-verde");
+                botones[i].classList.remove("enfermedad-rojo");
+            }
+    
+            // Poner el color correspondiente al botón clicado
+            if (color === 'verde') {
+                boton.classList.add("enfermedad-verde");
+            } else if (color === 'rojo') {
+                boton.classList.add("enfermedad-rojo");
+            }
+            
+            // Cambiar el color del texto al hacer clic
+            boton.style.color = color === 'verde';
+        }
+    </script>
+    
+</body>
+
+</html>

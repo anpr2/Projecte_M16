@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Actividades</title>
+    <style>
+        body {
+            background-color: #C7F48E;
+            padding: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            background-color: #3498db;
+            color: #ffffff;
+            margin-top: 20px;
+        }
+
+        .btn img {
+            width: 100px; /* Ancho fijo */
+            height: 100px; /* Altura fija */
+            margin-bottom: 10px;
+            float: left;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="tablero.png" alt="Tablero" />
+
+    <h1>Actividad</h1>
+
+    <a href="#" class="btn btn-info rounded-button btn-custom-7" id="button1">
+        <div class="button-text">Diagnosis Dents</div>
+    </a>
+
+    <script>
+        // Agrega un evento click al botón 1
+        document.getElementById("button1").addEventListener("click", function () {
+            // Redirige a la página /prova_carie
+            window.location.href = "/prova_carie";
+        });
+    </script>
+</body>
+
+</html>

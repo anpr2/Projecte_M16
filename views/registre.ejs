@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color: #C7F48E;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center">Registro de Usuario</h1>
+                <form id="registration-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="nombre_usuario" placeholder="Nombre de usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="contrasenya" placeholder="Contraseña" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="registro">Registrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const username = document.querySelector('[name="nombre_usuario"]').value;
+            const password = document.querySelector('[name="contrasenya"]').value;
+
+            // Realiza una solicitud POST al servidor Node.js en la dirección IP 192.168.56.120 y el puerto 3000
+            const response = await fetch('http://localhost:3000/registro', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nombre_usuario: username, contrasenya: password })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                window.location.href = '/login';
+            } else {
+                alert('Error al registrar el usuario: ' + result.message);
+            }
+        });
+    </script>
+</body>
+</html>

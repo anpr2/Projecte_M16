@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mostrar Fotos</title>
+</head>
+<body>
+  <h1>Fotos:</h1>
+  <ul id="fotos-list"></ul>
+
+  <script>
+    // Utilizaremos Ajax para hacer una solicitud al servidor Node.js
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        const fotosList = document.getElementById('fotos-list');
+        fotosList.innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "http://192.168.56.120:3000/", true);
+    xhttp.send();
+  </script>
+</body>
+</html>

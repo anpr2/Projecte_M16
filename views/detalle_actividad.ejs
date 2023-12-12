@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle de Actividad</title>
+</head>
+<body>
+    <h1 id="titulo-actividad"></h1>
+    <img id="imagen-actividad" src="" alt="Imagen de la actividad">
+    <button id="texto1" onclick="mostrarTexto(1)">Texto 1</button>
+    <button id="texto2" onclick="mostrarTexto(2)">Texto 2</button>
+    <button id="texto3" onclick="mostrarTexto(3)">Texto 3</button>
+    <button id="texte4">Comprovar</button>
+
+
+    <script>
+        // Función para mostrar el texto en función del botón pulsado
+        function mostrarTexto(numero) {
+            const texto = document.getElementById(`texto${numero}-actividad`);
+            if (texto) {
+                alert(texto.textContent);
+            }
+        }
+
+        // Obtener el parámetro "id" de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const actividadId = urlParams.get('id');
+
+        // Realizar una solicitud al servidor Node.js para obtener los detalles de la actividad seleccionada
+        fetch(`http://192.168.56.120:3000/actividades/${actividadId}`)
+            .then(response => response.json())
+            .then(actividad => {
+                const titulo = document.getElementById('titulo-actividad');
+                const imagen = document.getElementById('imagen-actividad');
+                const texto1 = document.getElementById('texto1');
+                const texto2 = document.getElementById('texto2');
+                const texto3 = document.getElementById('texto3');
+
+                titulo.textContent = actividad.titulo;
+                imagen.src = actividad.imagen;
+                texto1.textContent = actividad.texto1;
+                texto2.textContent = actividad.texto2;
+                texto3.textContent = actividad.texto3;
+            })
+            .catch(error => console.error('Error al obtener datos: ' + error));
+    </script>
+</body>
+</html>

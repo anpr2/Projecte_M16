@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Cicles</title>
+    <!-- Agrega el enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #C7F48E;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .rounded-button {
+            border: none;
+            padding: 0;
+            margin-right: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-custom-4,
+        .btn-custom-5,
+        .btn-custom-6 {
+            width: 150px;
+            height: 200px;
+        }
+
+        .button-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-md-12">
+                <div class="button-container">
+                    <a href="/opcions" class="btn btn-primary rounded-button btn-custom-4" id="button1">
+                        <img src="/Imatge_C/B_Cicle_HBD.png" alt="Imagen 1" class="button-img">
+                    </a>                    
+                    <button class="btn btn-secondary rounded-button btn-custom-5">
+                        <img src="/Imatge_C/B_Cicle_APD.png" alt="Imagen 2" class="button-img">
+                    </button>
+                    <button class="btn btn-success rounded-button btn-custom-6">
+                        <img src="/Imatge_C/B_Cicle_CAI.png" alt="Imagen 3" class="button-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-md-12">
+                <div class="button-container">
+                    <button class="btn btn-custom-4 rounded-button">
+                        <img src="/Imatge_C/B_Cicle_FIP.png" alt="Imagen 4" class="button-img">
+                    </button>
+                    <button class="btn btn-custom-5 rounded-button">
+                        <img src="/Imatge_C/B_Cicle_SMX.png" alt="Imagen 5" class="button-img">
+                    </button>
+                    <button class="btn btn-custom-6 rounded-button">
+                        <img src="/Imatge_C/B_Cicle_DAM.png" alt="Imagen 6" class="button-img">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showMessage() {
+            alert("Opción no implementada");
+        }
+    </script>
+
+    <!-- Agrega el enlace a Bootstrap JS y jQuery para funcionalidades adicionales -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Botones Redondos</title>
+    <!-- Agrega el enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #C7F48E;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .rounded-button {
+            border: none;
+            padding: 0;
+            margin-right: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-custom-4,
+        .btn-custom-5,
+        .btn-custom-6 {
+            width: 200px; /* Ajusta el tamaño del botón según tus necesidades */
+            height: 200px; /* Ajusta el tamaño del botón según tus necesidades */
+            border-radius: 50%;
+            font-size: 24px;
+        }
+
+        /* Añade una clase personalizada para los botones 1, 2 y 3 */
+        .btn-no-hover {
+            background-color: transparent !important;
+            border-color: transparent !important;
+        }
+
+        .button-img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn-custom-4 {
+            background-color: #C7F48E;
+        }
+
+        .btn-custom-5 {
+            background-color: #C7F48E;
+        }
+
+        .btn-custom-6 {
+            background-color: #C7F48E;
+        }
+
+        .button-text {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-md-12">
+                <div class="button-container">
+                    <div class="button-wrapper">
+                        <button class="btn btn-primary rounded-button btn-custom-4 btn-no-hover" id="button1">
+                            <img src="/Imatge_E/B_Opcions_.Anatomia_Dental.png" alt="Anatomia Dental" class="button-img">
+                        </button>
+                        <div class="button-text">ANATOMIA DENTAL</div>
+                    </div>
+                    <div class="button-wrapper">
+                        <button class="btn btn-secondary rounded-button btn-custom-5 btn-no-hover" id="button2">
+                            <img src="/Imatge_E/B_Opcions_.Patologies _Bucodentals.png" alt="Patologías Bucodentales"
+                                class="button-img">
+                        </button>
+                        <div class="button-text">PATOLOGIES BUCODENTALS</div>
+                    </div>
+                    <div class="button-wrapper">
+                        <button class="btn btn-success rounded-button btn-custom-6 btn-no-hover" id="button3">
+                            <img src="/Imatge_E/B_Opcions_.Material o.png" alt="Material Odontológico" class="button-img">
+                        </button>
+                        <div class="button-text">MATERIAL ODONTOLÒGIC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-md-12">
+                <div class="button-container">
+                    <div class="button-wrapper">
+                        <button class="btn btn-custom-4 rounded-button" id="button4">
+                            <img src="/Imatge_E/B_Opcions_Odontograsma.png" alt="Descripción de la imagen 4" class="button-img">
+                        </button>
+                        <div class="button-text">ODONTOGRAMA</div>
+                    </div>
+                    <div class="button-wrapper">
+                        <button class="btn btn-custom-5 rounded-button" id="button5">
+                            <img src="/Imatge_E/B_Opcions_higiene.png" alt="Descripción de la imagen 5" class="button-img">
+                        </button>
+                        <div class="button-text">TÈCNIQUES D’HIGIENE</div>
+                    </div>
+                    <div class="button-wrapper">
+                        <button class="btn btn-custom-6 rounded-button" id="button6">
+                            <img src="/Imatge_E/B_Opcions_repas.png" alt="Descripción de la imagen 6" class="button-img">
+                        </button>
+                        <div class="button-text">REPASSEM? TEST D’AVALUACIÓ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Agrega eventos click a los botones
+        document.getElementById("button1").addEventListener("click", function () {
+            window.location.href = "/activitat"; 
+        });
+
+        document.getElementById("button2").addEventListener("click", function () {
+            window.location.href = "/activitat1"; 
+        });
+
+        // Agrega eventos click a los nuevos botones
+        document.getElementById("button4").addEventListener("click", function () {
+            // Acción del botón 4
+        });
+
+        document.getElementById("button5").addEventListener("click", function () {
+            // Acción del botón 5
+        });
+
+        document.getElementById("button6").addEventListener("click", function () {
+            // Acción del botón 6
+        });
+    </script>
+
+    <!-- Agrega el enlace a Bootstrap JS y jQuery para funcionalidades adicionales -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
