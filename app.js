@@ -1,3 +1,5 @@
+// app.js
+
 const express = require('express');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
@@ -5,7 +7,6 @@ const bcrypt = require('bcrypt');
 const path = require('path');
 const ejs = require('ejs');
 const fs = require('fs');
-
 
 const app = express();
 const port = 3040;
@@ -30,14 +31,14 @@ async function getUserByUsername(username) {
         const connection = await mysql.createConnection(dbConfig);
         const [rows] = await connection.execute('SELECT * FROM usuari WHERE nombre_usuario = ?', [username]);
         await connection.end();
-        return rows[0];
+        return rows.length > 0 ? rows[0] : null;
     } catch (error) {
         console.error('Error al obtener usuario de la base de datos:', error);
         return null;
     }
 }
 
-// Ruta para servir el archivo index.html como página principal
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -47,30 +48,70 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/registre', (req, res) => {
-    res.render('registre'); 
+ res.render('registre');
 });
 
 
 app.get('/cicles', (req, res) => {
-    res.render('cicles'); 
+    res.render('cicles');
 });
 
 app.get('/opcions', (req, res) => {
-    res.render('opcions'); 
+        res.render('opcions');
 });
+
+
+app.get('/activitats', (req, res) => {
+    res.render('activitats');
+});
+
 
 app.get('/activitat1', (req, res) => {
-    res.render('activitats1'); 
-});
-
-app.get('/activitat', (req, res) => {
-    res.render('activitats'); 
+    res.render('activitats1');
 });
 
 app.get('/prova_carie', (req, res) => {
-    res.render('prova_carie'); 
+    res.render('prova_carie');
 });
 
+app.get('/prova_carie2', (req, res) => {
+    res.render('prova_carie2');
+});
+
+app.get('/prova_carie3', (req, res) => {
+    res.render('prova_carie3');
+});
+
+app.get('/prova_carie4', (req, res) => {
+    res.render('prova_carie4');
+});
+
+app.get('/prova_carie5', (req, res) => {
+    res.render('prova_carie5');
+});
+
+app.get('/prova_carie6', (req, res) => {
+    res.render('prova_carie6');
+});
+
+app.get('/cronologia1', (req, res) => {
+    res.render('cronologia1');
+});
+app.get('/cronologia2', (req, res) => {
+    res.render('cronologia2');
+});
+app.get('/cronologia3', (req, res) => {
+    res.render('cronologia3');
+});
+app.get('/cronologia4', (req, res) => {
+    res.render('cronologia4');
+});
+app.get('/cronologia5', (req, res) => {
+    res.render('cronologia5');
+});
+app.get('/cronologia6', (req, res) => {
+    res.render('cronologia6');
+});
 
 
 
@@ -101,6 +142,7 @@ app.post('/registro', async (req, res) => {
     }
 });
 
+
 app.post('/login', async (req, res) => {
     const { nombre_usuario, contrasenya } = req.body;
     const user = await getUserByUsername(nombre_usuario);
@@ -118,28 +160,6 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.get('/actividades', async (req, res) => {
-    try {
-        const connection = await mysql.createConnection(dbConfig);
-        const [rows] = await connection.execute('SELECT id, titulo, imagen FROM activitats');
-
-        if (rows.length > 0) {
-            const actividad = rows[0];
-            if (actividad.imagen) {
-                const imageBuffer = actividad.imagen;
-                res.setHeader('Content-Type', 'image/jpeg');
-                res.end(imageBuffer, 'binary');
-            } else {
-                res.status(404).send('No se encontró una imagen para esta actividad.');
-            }
-        } else {
-            res.status(404).send('No se encontraron actividades.');
-        }
-    } catch (error) {
-        console.error('Error al obtener actividades de la base de datos:', error);
-        res.status(500).send('Error en el servidor');
-    }
-});
 
 app.listen(port, () => {
     console.log(`La aplicación web está escuchando en el puerto ${port}`);

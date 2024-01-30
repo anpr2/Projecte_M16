@@ -2,11 +2,13 @@
 <html lang="es">
 
 <head>
-    <title>Enfermedades Bucodentales</title>
+    <meta charset="UTF-8">
+    <title>QUINS INCISIUS ERUPCIONEN ALS 7-8 ANYS?</title>
     <style>
         body {
             background-color: #C7F48E;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
@@ -15,7 +17,7 @@
 
         #contenedor {
             display: flex;
-            align-items: flex-start; /* Alinea los elementos al inicio */
+            align-items: flex-start;
         }
 
         #imagen-carie {
@@ -38,8 +40,6 @@
             cursor: pointer;
         }
 
-        
-
         .enfermedad-verde {
             background-color: #008000;
             color: #fff;
@@ -53,15 +53,16 @@
 </head>
 
 <body>
+    <h1>QUINS INCISIUS ERUPCIONEN ALS 7-8 ANYS?</h1>
+
     <div id="contenedor">
-        <img id="imagen-carie" src="foto_carie.png" alt="Foto Carie">
+        <img id="imagen-carie" src="Crono6.png" alt="Foto Carie">
 
         <div class="enfermedad-buttons">
-            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">A) Càries</button>
-            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">B) Fluorosis</button>
-            <button class="enfermedad-button" onclick="cambiarColor(this, 'verde')">C) Maloclusió</button>
-            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">D) Bruxisme</button>
-            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">E) Fractura</button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">A) CENTRALS INFERIORS </button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">B) CENTRALS SUPERIORS</button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">C) LATERALS SUPERIORS</button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'verde')">C) B I C SON CORRECTES</button>
         </div>
     </div>
 
@@ -97,7 +98,6 @@
         // Llamar a la función al cargar la página
         window.onload = reorganizarAleatoriamente;
     </script>
-
 </body>
 
 </html>

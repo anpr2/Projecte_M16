@@ -38,7 +38,7 @@
             cursor: pointer;
         }
 
-        
+      
 
         .enfermedad-verde {
             background-color: #008000;
@@ -54,19 +54,18 @@
 
 <body>
     <div id="contenedor">
-        <img id="imagen-carie" src="foto_carie.png" alt="Foto Carie">
+        <img id="imagen-carie" src="carie2.png" alt="Foto Carie">
 
-        <div class="enfermedad-buttons">
+        <div class="enfermedad-buttons" id="enfermedad-buttons">
             <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">A) Càries</button>
             <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">B) Fluorosis</button>
-            <button class="enfermedad-button" onclick="cambiarColor(this, 'verde')">C) Maloclusió</button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">C)Maloclusió</button>
             <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">D) Bruxisme</button>
-            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">E) Fractura</button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'verde')">E) Fractura</button>
         </div>
     </div>
 
     <script>
-        // Función para cambiar el color
         function cambiarColor(boton, color) {
             // Reiniciar todos los botones a color negro transparente
             var botones = document.getElementsByClassName("enfermedad-button");
@@ -88,7 +87,7 @@
 
         // Función para reorganizar los botones aleatoriamente
         function reorganizarAleatoriamente() {
-            var container = document.querySelector(".enfermedad-buttons");
+            var container = document.getElementById("enfermedad-buttons");
             for (var i = container.children.length; i >= 0; i--) {
                 container.appendChild(container.children[Math.random() * i | 0]);
             }

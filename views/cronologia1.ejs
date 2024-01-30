@@ -2,11 +2,13 @@
 <html lang="es">
 
 <head>
-    <title>Enfermedades Bucodentales</title>
+    <meta charset="UTF-8">
+    <title>ELS INCISIUS CENTRALS TEMPORALS A QUINA EDAD ERUPCIONEN?</title>
     <style>
         body {
             background-color: #C7F48E;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
@@ -15,7 +17,7 @@
 
         #contenedor {
             display: flex;
-            align-items: flex-start; /* Alinea los elementos al inicio */
+            align-items: center; /* Alinea los elementos verticalmente en el centro */
         }
 
         #imagen-carie {
@@ -38,8 +40,6 @@
             cursor: pointer;
         }
 
-        
-
         .enfermedad-verde {
             background-color: #008000;
             color: #fff;
@@ -53,15 +53,15 @@
 </head>
 
 <body>
+    <h1>ELS INCISIUS CENTRALS TEMPORALS A QUINA EDAD ERUPCIONEN?</h1>
+
     <div id="contenedor">
-        <img id="imagen-carie" src="foto_carie.png" alt="Foto Carie">
+        <img id="imagen-carie" src="Crono1.png" alt="Foto Carie">
 
         <div class="enfermedad-buttons">
-            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">A) Càries</button>
-            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">B) Fluorosis</button>
-            <button class="enfermedad-button" onclick="cambiarColor(this, 'verde')">C) Maloclusió</button>
-            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">D) Bruxisme</button>
-            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">E) Fractura</button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">A) 10 Mesos</button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'verde')">B) 7-8 mesos</button>
+            <button class="enfermedad-button" onclick="cambiarColor(this, 'rojo')">C) Primer anys</button>
         </div>
     </div>
 

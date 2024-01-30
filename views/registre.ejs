@@ -29,8 +29,7 @@
             const username = document.querySelector('[name="nombre_usuario"]').value;
             const password = document.querySelector('[name="contrasenya"]').value;
 
-            // Realiza una solicitud POST al servidor Node.js en la dirección IP 192.168.56.120 y el puerto 3000
-            const response = await fetch('http://localhost:3000/registro', {
+            const response = await fetch('/registro', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

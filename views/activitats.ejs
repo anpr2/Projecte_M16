@@ -1,31 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
     <title>Actividades</title>
     <style>
         body {
             background-color: #C7F48E;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Establece el 100% de la altura de la ventana */
         }
 
+        h1 {
+            display: inline-block;
+            background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .btn {
+            text-decoration: none;
+            display: inline-block;
+            width: 40%;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            background-color: #3498db;
+            color: #ffffff;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-1 {
+            background-color: #e74c3c;
+        }
+
+        .btn-2 {
+            background-color: #2ecc71;
+        }
+
+        .btn-3 {
+            background-color: #f39c12;
+        }
+
+        .btn-4 {
+            background-color: #9b59b6;
+        }
+
+        .btn-5 {
+            background-color: #34495e;
+        }
+
+        .btn-6 {
+            background-color: #e67e22;
+        }
+
+        .btn img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            float: left;
+            margin-right: 20px;
+        }
     </style>
 </head>
+
 <body>
+    <img src="tablero2.png" alt="Tablero" />
+
     <h1>Actividad</h1>
-    <img id="actividad-image" src="" alt="Imagen de la actividad">
+
+    <a href="#" class="btn btn-info rounded-button btn-custom-7 btn-1" id="button1">
+        <div class="button-text">Cronologia 1</div>
+    </a>
+
+    <a href="#" class="btn btn-info rounded-button btn-custom-7 btn-2" id="button2">
+        <div class="button-text">Cronologia 2</div>
+    </a>
+
+    <a href="#" class="btn btn-info rounded-button btn-custom-7 btn-3" id="button3">
+        <div class="button-text">Cronologia 3</div>
+    </a>
+
+    <a href="#" class="btn btn-info rounded-button btn-custom-7 btn-4" id="button4">
+        <div class="button-text">Cronologia 4</div>
+    </a>
+
+    <a href="#" class="btn btn-info rounded-button btn-custom-7 btn-5" id="button5">
+        <div class="button-text">Cronologia 5</div>
+    </a>
+
+    <a href="#" class="btn btn-info rounded-button btn-custom-7 btn-6" id="button6">
+        <div class="button-text">Cronologia 6</div>
+    </a>
 
     <script>
-        const actividadImage = document.getElementById('actividad-image');
+        document.getElementById("button1").addEventListener("click", function () {
+            window.location.href = "/cronologia1";
+        });
 
-        // Realiza una solicitud al servidor Node.js para obtener la imagen de la actividad
-        fetch('http://192.168.56.120:3000/actividades')  // Ajusta la URL a tu servidor Node.js
-            .then(response => {
-                if (response.ok) {
-                    actividadImage.src = 'data:image/jpeg;base64,' + response;
-                } else {
-                    console.error('Error al obtener la imagen:', response.statusText);
-                }
-            })
-            .catch(error => console.error('Error al obtener la imagen:', error));
+        document.getElementById("button2").addEventListener("click", function () {
+            window.location.href = "/cronologia2";
+        });
+
+        document.getElementById("button3").addEventListener("click", function () {
+            window.location.href = "/cronologia3";
+        });
+
+        document.getElementById("button4").addEventListener("click", function () {
+            window.location.href = "/cronologia4";
+        });
+
+        document.getElementById("button5").addEventListener("click", function () {
+            window.location.href = "/cronologia5";
+        });
+
+        document.getElementById("button6").addEventListener("click", function () {
+            window.location.href = "/cronologia6";
+        });
     </script>
 </body>
+
 </html>
