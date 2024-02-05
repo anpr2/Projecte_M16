@@ -62,7 +62,7 @@ app.get('/opcions', (req, res) => {
 
 
 app.get('/activitats', (req, res) => {
-    res.render('activitats');
+    res.render('arrosegar');
 });
 
 

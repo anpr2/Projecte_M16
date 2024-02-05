@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrosega</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 100vh;
+            margin: 0;
+            background-color: #C7F48E;
+        }
+
+        .buttons-container,
+        .buttons-container-right {
+            display: flex;
+            flex-direction: column;
+            margin: 0 20px;
+        }
+
+        .buttons-container-right {
+            margin-right: 20px;
+        }
+
+        .buttons-container button,
+        .buttons-container-right button {
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: none;
+            padding: 5px;
+            transition: color 0.3s ease;
+            background-color: #C7F48E; 
+        }
+
+        .buttons-container button.in-circle {
+            background-color: #C7F48E; /* Cambiado a verde como el fondo de la página */
+            border: none;
+            padding: 0;
+        }
+
+        #circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #C7F48E;
+            border: 2px solid gray;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        #circle .green {
+            color: green;
+            background-color: #C7F48E; /* Cambiado a verde como el fondo de la página */
+            border: none;
+            padding: 0;
+        }
+
+        #circle .red {
+            color: red;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        #circle img {
+            object-fit: cover;
+            position: absolute;
+            bottom: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons-container">
+        <button id="btn1" draggable="true">sensibilitat</button>
+        <button id="btn2" draggable="true">dolor</button>
+        <button id="btn3" draggable="true">taca blanca</button>
+        <button id="btn4" draggable="true">mal halè</button>
+    </div>
+
+    <div id="circle">
+        <img src="foto_arrosegar.png" alt="Imagen">
+    </div>
+
+    <div class="buttons-container-right">
+        <button id="btn5" draggable="true">mal de panxa</button>
+        <button id="btn6" draggable="true">supuració</button>
+        <button id="btn7" draggable="true">sagnat</button>
+        <button id="btn8" draggable="true">vómits</button>
+    </div>
+
+    <script>
+        const circle = document.getElementById('circle');
+        const buttons = document.querySelectorAll('button');
+
+        let draggedButton = null;
+
+        buttons.forEach(button => {
+            button.addEventListener('dragstart', () => {
+                draggedButton = button;
+            });
+
+            button.addEventListener('dragend', () => {
+                draggedButton = null;
+                button.style.backgroundColor = '#C7F48E';
+            });
+        });
+
+        circle.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        circle.addEventListener('drop', () => {
+            if (draggedButton) {
+                draggedButton.setAttribute('draggable', 'false');
+                if (draggedButton.id >= 'btn1' && draggedButton.id <= 'btn4') {
+                    const index = document.querySelectorAll('#circle .green').length;
+                    draggedButton.style.position = 'absolute';
+                    draggedButton.style.top = `${index * 30 + 20}px`;
+                    draggedButton.style.left = '50%';
+                    draggedButton.style.transform = 'translateX(-50%)';
+                    circle.appendChild(draggedButton);
+                    draggedButton.classList.add('green');
+                    draggedButton.classList.add('in-circle');
+                } else if (draggedButton.id >= 'btn5' && draggedButton.id <= 'btn8') {
+                    draggedButton.style.position = 'initial';
+                    draggedButton.classList.add('red');
+                    draggedButton.style.color = 'red';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
